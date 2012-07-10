@@ -1,0 +1,2 @@
+awk '{ print $1 }' access.log | sort -n | uniq -c | sort -rn
+awk -F\" '{print $1}' access.log | sort | uniq -c | sort -fr
