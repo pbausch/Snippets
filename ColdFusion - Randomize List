@@ -1,0 +1,20 @@
+<cffunction name="randomizeList" output="no">
+	<cfargument name="list" type="string" required="yes" />
+
+	<cfset var randomPos = 1 />
+	<cfset var result = ArrayNew(1) />
+	
+	<!--- Convert the list to an array for speed --->
+	<cfset list = ListToArray(list) />
+	
+	<!--- As many times as there are items in the current list --->
+	<cfloop index="i" from="1" to="#ArrayLen(list)#">
+		<!--- Add one list item at random to the results --->
+		<cfset randomPos = RandRange(1, ArrayLen(list)) />
+		<cfset ArrayAppend(result, list[randomPos]) />
+		<!--- Remove that list item --->
+		<cfset ArrayDeleteAt(list, randomPos) />
+	</cfloop>
+
+	<cfreturn ArrayToList(result) />
+</cffunction>

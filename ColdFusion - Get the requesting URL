@@ -1,0 +1,4 @@
+<cfset objRequest = GetPageContext().GetRequest() />
+<cfset reqURL = objRequest.GetRequestUrl().ToString()/>
+
+(not sure this works)
