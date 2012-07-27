@@ -1,0 +1,5 @@
+Apache Config:
+/etc/apache2/httpd.conf
+
+Default Web Root:
+/Library/WebServer/Documents
