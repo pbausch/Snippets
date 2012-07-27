@@ -1,5 +1,8 @@
 Apache Config:
 /etc/apache2/httpd.conf
 
+Virtual Hosts:
+/private/etc/apache2/other/vhosts.conf
+
 Default Web Root:
 /Library/WebServer/Documents
