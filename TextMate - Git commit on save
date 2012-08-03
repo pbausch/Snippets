@@ -19,3 +19,10 @@ unless git_answer.grep(/fatal/).empty?
   puts "Please initialize git repository first!"
 end
 system "growlnotify -m 'commited #{filename}'"
+
+
+Command Settings
+
+Save: Current File
+Input: Entire Document
+Output: Show as Tool Tip
