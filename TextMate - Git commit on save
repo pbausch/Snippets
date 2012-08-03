@@ -1,0 +1,21 @@
+⌘S
+
+#!/usr/bin/env ruby
+filename = ENV["TM_FILEPATH"].split("/").last
+`git add "#{ENV["TM_FILEPATH"]}"`
+`git commit -m "updated #{filename}"`
+system "growlnotify -m 'commited #{filename}'"
+
+⇧⌘S
+
+#!/usr/bin/env ruby
+filename = ENV["TM_FILEPATH"].split("/").last
+require ENV['TM_SUPPORT_PATH'] + '/lib/ui'
+message = TextMate::UI.request_string(:title => "Commiting changes of #{filename}", :prompt => "Please enter the commit message for your changes.")
+add = `git add "#{ENV["TM_FILEPATH"]}" 2>&1`
+commit = `git commit -m "#{message}" 2>&1`
+git_answer = add + commit
+unless git_answer.grep(/fatal/).empty?
+  puts "Please initialize git repository first!"
+end
+system "growlnotify -m 'commited #{filename}'"
