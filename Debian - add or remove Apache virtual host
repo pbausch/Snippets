@@ -1,2 +1,3 @@
-/usr/sbin/a2ensite
-/usr/sbin/a2dissite
+Define: /etc/apache2/sites-available/[site]
+Add: /usr/sbin/a2ensite [site]
+Remove: /usr/sbin/a2dissite [site]
