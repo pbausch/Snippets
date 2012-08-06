@@ -1,1 +1,1 @@
-awk '/subscriber/ {print $14,$12,$7}' [log file] | sort -nr | uniq | tr ' ' ',' | tr -d '"' | tr -d ';'
+awk '/subscriber/ {print $14,$12,$7}' [log file] | sort -nr | uniq | tr ' ' ','
