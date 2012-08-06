@@ -1,0 +1,1 @@
+awk '/subscriber/ {print $12,$14,$7}' my_log | sort -nr | uniq | cut -c 2- | tr ' ' '\t'
