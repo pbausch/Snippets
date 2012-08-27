@@ -1,0 +1,5 @@
+SELECT [field], 
+ COUNT([field]) AS NumOccurrences
+FROM [table]
+GROUP BY [field]
+HAVING (COUNT([field]) > 1)
