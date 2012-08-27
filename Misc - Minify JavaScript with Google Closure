@@ -1,1 +1,1 @@
-java -jar /bin/compiler.jar --js hello.js --js_output_file hello.min.js
+sudo java -jar /usr/bin/compiler.jar --js hello.js --js_output_file hello.min.js
