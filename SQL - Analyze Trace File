@@ -1,0 +1,10 @@
+SELECT Count(*) as CountOfEvents,
+AVG(Duration) AS AvgDuration,
+SUM(Duration) AS [SumDuration],
+AVG(CPU) AS AvgCPU,
+SUM(CPU) AS SumCPU,
+SUBSTRING(TextData, 1, 200) AS [Text Data]
+FROM ::fn_trace_gettable('[full path to trace file]',default)
+WHERE EventClass in (10,12) -- BatchCompleted, RPC Completed
+GROUP BY SUBSTRING(TextData, 1, 200)
+ORDER BY AVG(Duration) DESC
