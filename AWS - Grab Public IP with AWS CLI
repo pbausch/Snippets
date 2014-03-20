@@ -1,0 +1,1 @@
+aws ec2 describe-instances --instance-ids [instance id] | grep PublicIpAddress | awk ' {print $2}' | sed 's/[\",]//g'
