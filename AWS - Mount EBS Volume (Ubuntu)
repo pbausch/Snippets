@@ -1,0 +1,13 @@
+1. Create EBS volume.
+2. Attach EBS volume to /dev/sdf (EC2's external name for this particular device number).
+3. Format file system /dev/xvdf (Ubuntu's internal name for this particular device number):
+
+sudo mkfs.ext4 /dev/xvdf
+
+4. Mount file system (with update to /etc/fstab so it stays mounted on reboot):
+
+sudo mkdir /vol
+echo "/dev/xvdf /vol auto noatime 0 0" | sudo tee -a /etc/fstab
+sudo mount /vol
+
+[via http://stackoverflow.com/a/11537390/160961]
