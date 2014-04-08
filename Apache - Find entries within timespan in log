@@ -1,0 +1,5 @@
+Get entries within absolute timespan:
+awk -vDate=`date -d '14:06' +[%d/%b/%Y:%H:%M:%S` -vDate2=`date -d'14:07' +[%d/%b/%Y:%H:%M:%S` ' { if ($4 > Date && $4 < Date2) print $0}' access.log
+
+Get most active IPs within absolute timespan:
+awk -vDate=`date -d '14:05' +[%d/%b/%Y:%H:%M:%S` -vDate2=`date -d'14:08' +[%d/%b/%Y:%H:%M:%S` ' { if ($4 > Date && $4 < Date2) print $1}' access.log | sort  |uniq -c |sort -n | tail
