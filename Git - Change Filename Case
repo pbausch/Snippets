@@ -1,0 +1,3 @@
+git mv -f file.txt FILE.txt
+
+[via http://nova-fusion.com/2011/08/31/changing-filename-case-in-git/]
