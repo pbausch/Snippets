@@ -1,0 +1,3 @@
+# find all URLs on a webpage at [url] and filter out all URLs that contain [string] (handy for skipping local links)
+
+lynx --dump [url] | awk '/(http|https):\/\// {print $2}' | grep -v [string] > links.txt

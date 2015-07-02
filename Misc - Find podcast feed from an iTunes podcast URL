@@ -1,0 +1,10 @@
+#!/bin/bash
+# Find the podcast feed URL from an iTunes podcast URL
+
+URL=$(curl -s -A "iTunes/9.1.1" --compressed $1 | 
+grep -o 'https[^<]*' |
+perl -n -mHTML::Entities -e ' ; print HTML::Entities::decode_entities($_) ;')
+
+curl -s -A "iTunes/9.1.1" --compressed $URL |
+grep -o 'feed-url="[^"]*' |
+sed -e 's/feed-url="//'

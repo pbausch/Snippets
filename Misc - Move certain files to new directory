@@ -1,0 +1,1 @@
+find [path] -name '*.txt' | xargs -I files mv files [path]
