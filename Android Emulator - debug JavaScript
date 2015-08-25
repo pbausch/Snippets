@@ -1,3 +1,7 @@
 export PATH=/Applications/android-sdk-mac_x86/platform-tools/:$PATH
 adb devices
 adb -s [device] logcat browser:V *:S
+
+OR 
+
+adb logcat | grep -i "console"
