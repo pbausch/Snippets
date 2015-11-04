@@ -1,0 +1,20 @@
+#thanks, http://gizmodo.com/how-to-replace-twitters-dumb-heart-with-the-emoji-of-yo-1740302661
+
+.HeartAnimationContainer {
+    visibility: hidden;
+}
+.HeartAnimationContainer:after {
+    content: '★';
+    visibility: visible;
+    display: block;
+    position: absolute;
+    /* filter: grayscale(100%);
+    -webkit-filter: grayscale(100%); */
+    color: #AAB8C2;  
+}
+.ProfileTweet-actionButtonUndo .IconContainer .HeartAnimationContainer:after {
+    color: gold; 
+}
+.ProfileTweet-actionCountForPresentation {
+ 	color: #AAB8C2;   
+}

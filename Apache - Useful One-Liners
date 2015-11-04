@@ -1,0 +1,31 @@
+# thanks, https://blog.nexcess.net/2011/01/21/one-liners-for-apache-log-files/
+
+# top 20 URLs from the last 5000 hits
+tail -5000 ./transfer.log | awk '{print $7}' | sort | uniq -c | sort -rn | head -20
+tail -5000 ./transfer.log | awk '{freq[$7]++} END {for (x in freq) {print freq[x], x}}' | sort -rn | head -20
+ 
+# top 20 URLS excluding POST data from the last 5000 hits
+tail -5000 ./transfer.log | awk -F"[ ?]" '{print $7}' | sort | uniq -c | sort -rn | head -20
+tail -5000 ./transfer.log | awk -F"[ ?]" '{freq[$7]++} END {for (x in freq) {print freq[x], x}}' | sort -rn | head -20
+ 
+# top 20 IPs from the last 5000 hits
+tail -5000 ./transfer.log | awk '{print $1}' | sort | uniq -c | sort -rn | head -20
+tail -5000 ./transfer.log | awk '{freq[$1]++} END {for (x in freq) {print freq[x], x}}' | sort -rn | head -20
+ 
+# top 20 URLs requested from a certain ip from the last 5000 hits
+IP=1.2.3.4; tail -5000 ./transfer.log | grep $IP | awk '{print $7}' | sort | uniq -c | sort -rn | head -20
+IP=1.2.3.4; tail -5000 ./transfer.log | awk -v ip=$IP ' $1 ~ ip {freq[$7]++} END {for (x in freq) {print freq[x], x}}' | sort -rn | head -20
+ 
+# top 20 URLS requested from a certain ip excluding, excluding POST data, from the last 5000 hits
+IP=1.2.3.4; tail -5000 ./transfer.log | fgrep $IP | awk -F "[ ?]" '{print $7}' | sort | uniq -c | sort -rn | head -20
+IP=1.2.3.4; tail -5000 ./transfer.log | awk -F"[ ?]" -v ip=$IP ' $1 ~ ip {freq[$7]++} END {for (x in freq) {print freq[x], x}}' | sort -rn | head -20
+ 
+# top 20 referrers from the last 5000 hits
+tail -5000 ./transfer.log | awk '{print $11}' | tr -d '"' | sort | uniq -c | sort -rn | head -20
+tail -5000 ./transfer.log | awk '{freq[$11]++} END {for (x in freq) {print freq[x], x}}' | tr -d '"' | sort -rn | head -20
+ 
+# top 20 user agents from the last 5000 hits
+tail -5000 ./transfer.log | cut -d\  -f12- | sort | uniq -c | sort -rn | head -20
+ 
+# sum of data (in MB) transferred in the last 5000 hits
+tail -5000 ./transfer.log | awk '{sum+=$10} END {print sum/1048576}'
