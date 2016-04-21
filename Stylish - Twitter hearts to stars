@@ -18,3 +18,11 @@
 .ProfileTweet-actionCountForPresentation {
  	color: #AAB8C2;   
 }
+.ProfileNav-item--favorites .ProfileNav-label {
+  visibility: hidden;
+}
+​.ProfileNav-item--favorites .ProfileNav-label:after {
+  content:'Favorites'; 
+  visibility: visible;
+  margin-left:-30px;
+}

@@ -1,0 +1,5 @@
+cd [cf root]/WEB-INF/cfusion/Mail/Undelivr
+for file in $(ls -t | grep -v / | head -100)
+do
+sudo mv $file [cf root]/WEB-INF/cfusion/Mail/Spool
+done
