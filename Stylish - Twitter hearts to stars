@@ -4,18 +4,19 @@
     visibility: hidden;
 }
 .HeartAnimationContainer:after, .Icon--heart:before {
-    content: '★' !important;
+    content: '☆' !important;
     visibility: visible;
     display: inline-block;
     position: relative;
     vertical-align: middle;
     /* filter: grayscale(100%);
     -webkit-filter: grayscale(100%); */
-    color: #AAB8C2;  
-	font-size: 22px;
+    color: #657786;  
+	font-size: 25px;
     margin-bottom: 6px;
 }
 .ProfileTweet-actionButtonUndo .IconContainer .Icon--heart:before {
+    content: '★' !important;
     color: gold; 
 }
 .ProfileTweet-actionCountForPresentation {
