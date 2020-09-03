@@ -1,1 +1,2 @@
 1. &#8203; Zero Width Space - Breaks a continuous line at this point, if necessary.
+2. &#8239; Narrow non-breaking space like a Thin Space.
